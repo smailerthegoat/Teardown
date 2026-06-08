@@ -1,0 +1,24 @@
+/* Teardown — a technical article read at night.
+   Near-black ground, amber for the thing under discussion, teal for the result. */
+:root{
+  --ground:#0F1113;
+  --surface:#15181C;
+  --surface-2:#1C2026;
+  --line:#272C33;
+
+  --fg:#E6E8EA;
+  --fg-2:#B4BAC2;
+  --dim:#7C838D;
+  --faint:#545B65;
+
+  --amber:#F0A03C;
+  --teal:#5BC8AF;
+  --red:#E2685F;
+
+  --display:'Syne',"Helvetica Neue",Arial,sans-serif;
+  --body:'Spectral',Georgia,serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,monospace;
+
+  --gutter:22px;
+  color-scheme:dark;
+}
