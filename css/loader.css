@@ -1,0 +1,15 @@
+/* Column wipe. Sits over everything until the first frame is worth showing. */
+#curtain{position:fixed;inset:0;z-index:90;pointer-events:none}
+#curtain .cols{position:absolute;inset:0;display:flex}
+#curtain .cols i{flex:1;background:var(--ground);transform-origin:top;will-change:transform}
+#curtain .count{
+  position:absolute;right:var(--gutter);bottom:20px;
+  font-family:var(--display);font-weight:800;font-size:clamp(46px,11vw,110px);
+  letter-spacing:-.05em;line-height:1;color:var(--fg);
+  font-variant-numeric:tabular-nums;
+}
+#curtain .mark{
+  position:absolute;left:var(--gutter);bottom:26px;color:var(--amber);
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+}
+#curtain.done{display:none}
