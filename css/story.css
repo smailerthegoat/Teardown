@@ -1,0 +1,47 @@
+/* Prose column left, sticky figure right. One column on narrow screens,
+   with the figure stuck to the top instead of the side. */
+.story{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);
+  gap:60px;padding-block:70px 40px;align-items:start;
+}
+.prose{display:flex;flex-direction:column;gap:0}
+.step{
+  min-height:86svh;display:flex;flex-direction:column;justify-content:center;gap:16px;
+  opacity:.38;transition:opacity .4s;
+}
+.step.live{opacity:1}
+.step .num{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--amber);
+}
+.step h2{
+  font-family:var(--display);font-weight:700;font-size:clamp(24px,3.4vw,36px);
+  line-height:1.05;letter-spacing:-.03em;margin:0;text-wrap:balance;
+}
+.step p{margin:0;max-width:52ch;color:var(--fg-2)}
+.step code{
+  font-family:var(--mono);font-size:.82em;background:var(--surface-2);
+  border:1px solid var(--line);border-radius:3px;padding:2px 6px;color:var(--fg);
+}
+.step .aside{
+  border-left:2px solid var(--line);padding-left:14px;
+  color:var(--dim);font-size:15px;max-width:48ch;
+}
+
+.figure{position:sticky;top:90px}
+.figbox{
+  background:var(--surface);border:1px solid var(--line);border-radius:4px;overflow:hidden;
+}
+#fig{width:100%;height:430px}
+.figbar{
+  display:flex;justify-content:space-between;gap:12px;
+  padding:10px 14px;border-top:1px solid var(--line);color:var(--faint);
+}
+.figbar .live{color:var(--teal)}
+
+@media (max-width:900px){
+  .story{grid-template-columns:1fr;gap:20px}
+  .figure{position:sticky;top:12px;z-index:5;order:-1}
+  #fig{height:300px}
+  .step{min-height:72svh}
+}
