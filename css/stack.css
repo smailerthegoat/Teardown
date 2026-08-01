@@ -1,0 +1,23 @@
+/* The closing summary: sticky cards that pile up. */
+.summary{padding-block:60px 100px;border-top:1px solid var(--line)}
+.summary h2{
+  font-family:var(--display);font-weight:800;font-size:clamp(26px,4.6vw,40px);
+  letter-spacing:-.035em;margin:0 0 10px;
+}
+.summary .sub{color:var(--dim);margin:0 0 40px;max-width:58ch}
+.deck{display:flex;flex-direction:column;gap:44px}
+.dcard{
+  position:sticky;border:1px solid var(--line);border-radius:5px;
+  padding:26px;min-height:190px;display:flex;flex-direction:column;gap:10px;
+  background:var(--surface);will-change:transform;
+}
+.dcard .n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--amber)}
+.dcard h3{font-family:var(--display);font-weight:700;font-size:24px;margin:0;letter-spacing:-.02em}
+.dcard p{margin:0;color:var(--fg-2);max-width:56ch;font-size:16px}
+
+.foot{
+  border-top:1px solid var(--line);padding-block:24px 60px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--faint);
+}
+.foot a{text-decoration:none;border-bottom:1px solid var(--line)}
+.foot a:hover{color:var(--amber);border-color:var(--amber)}
