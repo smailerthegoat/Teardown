@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Teardown — How a scroll becomes a frame</title>
+<title>Teardown</title>
 <meta name="description" content="Six steps from a raw pixel count to something moving on screen, with a figure that rebuilds itself as you read.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,7 @@
 <header class="hero wrap">
   <p class="kicker mono">Teardown № 01 · scroll-driven animation</p>
   <h1>How a scroll position<br>becomes a frame.</h1>
-  <p class="sub">Everything scroll-driven on the web — pinned sections, parallax, scrubbed video, the lot — is the same six steps. Here they are, one at a time, with a figure that redraws itself as you read.</p>
+  <p class="sub">Everything scroll-driven on the web, from pinned sections to parallax to scrubbed video, is the same six steps. Here they are, one at a time, with a figure that redraws itself as you read.</p>
   <p class="byline mono">
     <span>~9 min</span><span>vanilla js, no libraries</span>
     <span><a href="https://github.com/smailerthegoat/Teardown">source ↗</a></span>
@@ -36,7 +36,7 @@
 <main class="story wrap">
   <div class="prose">
 
-    <section class="step" data-fig="0" data-cap="scrollY — a distance, not a meaning">
+    <section class="step" data-fig="0" data-cap="scrollY : a distance, not a meaning">
       <span class="num">Step 01</span>
       <h2>The browser gives you one number.</h2>
       <p><code>window.scrollY</code> is how far the document has moved past the top of the viewport, in pixels. That's it. It knows nothing about your sections, your animation, or how far through anything the reader is.</p>
@@ -46,14 +46,14 @@
     <section class="step" data-fig="1" data-cap="normalise against a range you chose">
       <span class="num">Step 02</span>
       <h2>Normalise it against a range.</h2>
-      <p>Pick a start and an end — usually where a section enters and leaves — and turn the raw pixel count into <code>0 → 1</code>. Every later decision reads that one number instead of the scroll position, which is what makes the effect independent of page length, viewport size and zoom.</p>
+      <p>Pick a start and an end, usually where a section enters and leaves, then turn the raw pixel count into <code>0 → 1</code>. Every later decision reads that one number instead of the scroll position, which is what makes the effect independent of page length, viewport size and zoom.</p>
       <p class="aside">Clamp it. An unclamped progress value is how elements end up half a screen off on short viewports.</p>
     </section>
 
-    <section class="step" data-fig="2" data-cap="sticky — the stage stops, the page doesn't">
+    <section class="step" data-fig="2" data-cap="sticky : the stage stops, the page doesn't">
       <span class="num">Step 03</span>
       <h2>Pin the stage.</h2>
-      <p>Progress needs somewhere to happen. <code>position: sticky</code> holds an element still while its taller parent scrolls past — so the reader keeps scrolling, but the thing they're looking at stays put. The parent's height is the animation's duration, expressed in pixels.</p>
+      <p>Progress needs somewhere to happen. <code>position: sticky</code> holds an element still while its taller parent scrolls past, so the reader keeps scrolling, but the thing they're looking at stays put. The parent's height is the animation's duration, expressed in pixels.</p>
       <p class="aside">This is the whole of what GSAP's <code>pin</code> does. It just also handles the edge cases you'd hit on day three.</p>
     </section>
 
@@ -61,20 +61,20 @@
       <span class="num">Step 04</span>
       <h2>Spend the progress on one property.</h2>
       <p>Multiply progress by the distance the thing has to travel and write it to <code>transform</code>. Horizontal galleries are <code>translateX(−p × overflow)</code>. Scrubbed reveals are <code>scaleY</code> or a clip. Counters are just <code>Math.round(p × n)</code>.</p>
-      <p class="aside">Transform and opacity are composited on the GPU. Everything else drags layout or paint into your frame — see step six.</p>
+      <p class="aside">Transform and opacity are composited on the GPU. Everything else drags layout or paint into your frame. See step six.</p>
     </section>
 
     <section class="step" data-fig="4" data-cap="the eased value is what the eye reads">
       <span class="num">Step 05</span>
       <h2>Never render the raw value.</h2>
       <p>Write the target to a variable, and each frame move the rendered value a fraction of the way toward it: <code>value += (target − value) × 0.08</code>. The render now trails the input by a few frames, and that lag is the entire difference between "a website" and "a site that feels made".</p>
-      <p class="aside">This is what smooth-scroll libraries sell. You can have it in one line — they add the rest of the scroll model around it.</p>
+      <p class="aside">This is what smooth-scroll libraries sell. You can have it in one line. They add the rest of the scroll model around it.</p>
     </section>
 
     <section class="step" data-fig="5" data-cap="16.7ms, and layout is not invited">
       <span class="num">Step 06</span>
       <h2>Stay inside 16.7 milliseconds.</h2>
-      <p>At 60fps that's the whole budget for your maths, layout, paint and composite. Animate <code>transform</code> and <code>opacity</code> and you skip layout and paint entirely. Touch <code>top</code>, <code>width</code> or <code>box-shadow</code> on every frame and you won't make it — and on a mid-range phone you'll miss it by a lot.</p>
+      <p>At 60fps that's the whole budget for your maths, layout, paint and composite. Animate <code>transform</code> and <code>opacity</code> and you skip layout and paint entirely. Touch <code>top</code>, <code>width</code> or <code>box-shadow</code> on every frame and you won't make it, and on a mid-range phone you'll miss it by a lot.</p>
       <p class="aside">Read layout once per frame, write after. Interleaving <code>getBoundingClientRect()</code> with style writes forces the browser to recompute, repeatedly, inside your loop.</p>
     </section>
 
@@ -84,7 +84,7 @@
     <div class="figbox"><canvas id="fig"></canvas></div>
     <div class="figbar mono">
       <span id="figname">fig. 01</span>
-      <span class="live" id="figcap">scrollY — a distance, not a meaning</span>
+      <span class="live" id="figcap">scrollY : a distance, not a meaning</span>
     </div>
   </aside>
 </main>

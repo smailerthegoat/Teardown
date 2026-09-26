@@ -1,4 +1,4 @@
-/* Hero figure — sampled particles.
+/* Hero figure : sampled particles.
    The title is drawn to an offscreen canvas, its alpha channel read once, and
    every opaque pixel becomes a particle. It does real work here, because the
    article is about turning input into pixels. */

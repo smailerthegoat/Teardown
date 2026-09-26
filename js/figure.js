@@ -46,7 +46,7 @@
     }
   }
 
-  /* 0 — scrollY is a pixel count and nothing else */
+  /* 0 : scrollY is a pixel count and nothing else */
   function drawRaw(ctx, w, h, p){
     var px = 22, pw = 74, py = 40, ph = h - 110;
     box(ctx, px, py, pw, ph, C.line, C.surface);
@@ -60,10 +60,10 @@
     box(ctx, px + pw + 34, py + ph / 2 - 46, w - px - pw - 60, 92, C.line);
     label(ctx, "window.scrollY", px + pw + 50, py + ph / 2 - 20);
     big(ctx, Math.round(p * 4820) + " px", px + pw + 50, py + ph / 2 + 18, C.amber);
-    label(ctx, "no meaning yet — just a distance from the top", px, h - 44);
+    label(ctx, "no meaning yet, just a distance from the top", px, h - 44);
   }
 
-  /* 1 — normalise the number against a range you chose */
+  /* 1 : normalise the number against a range you chose */
   function drawNormalise(ctx, w, h, p){
     var x0 = 40, x1 = w - 40, y = h / 2 - 20;
     ctx.strokeStyle = C.line; ctx.lineWidth = 2;
@@ -86,7 +86,7 @@
     big(ctx, p.toFixed(3), 40, h - 46, C.teal);
   }
 
-  /* 2 — pin the stage so progress has somewhere to happen */
+  /* 2 : pin the stage so progress has somewhere to happen */
   function drawPin(ctx, w, h, p){
     var vx = 40, vy = 46, vw = w - 80, vh = h - 130;
     label(ctx, "viewport", vx, vy - 12);
@@ -110,7 +110,7 @@
     label(ctx, "content scrolls · the stage holds still", vx, h - 44);
   }
 
-  /* 3 — spend the progress on one property */
+  /* 3 : spend the progress on one property */
   function drawMap(ctx, w, h, p){
     var vx = 40, vy = 70, vw = w - 80, vh = 150;
     label(ctx, "position: sticky container", vx, vy - 12);
@@ -134,10 +134,10 @@
 
     label(ctx, "translateX( −progress × overflow )", vx, h - 92);
     big(ctx, Math.round(shift) + "px", vx, h - 54, C.amber);
-    label(ctx, "transform only — never left/top", vx, h - 28);
+    label(ctx, "transform only, never left/top", vx, h - 28);
   }
 
-  /* 4 — the eased value is what the eye reads */
+  /* 4 : the eased value is what the eye reads */
   function drawSmooth(ctx, w, h, p){
     var x0 = 50, x1 = w - 50, y = h / 2;
     var target = x0 + p * (x1 - x0);
@@ -161,7 +161,7 @@
     label(ctx, "lag: " + Math.abs(target - eased).toFixed(1) + "px", 50, h - 46, C.amber);
   }
 
-  /* 5 — the frame budget is the whole constraint */
+  /* 5 : the frame budget is the whole constraint */
   function drawBudget(ctx, w, h){
     var bx = 46, bw = w - 100, rowH = 46, top = 74;
     label(ctx, "one frame at 60fps = 16.7ms", bx, top - 22);

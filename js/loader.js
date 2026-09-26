@@ -1,4 +1,4 @@
-/* Column wipe. Runs once, then removes itself from the page entirely —
+/* Column wipe. Runs once, then removes itself from the page entirely:
    a curtain that stays in the DOM is a curtain that eats clicks. */
 (function(){
   "use strict";
