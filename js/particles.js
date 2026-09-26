@@ -1,7 +1,7 @@
 /* Hero figure — sampled particles.
    The title is drawn to an offscreen canvas, its alpha channel read once, and
-   every opaque pixel becomes a particle. Same routine the lab demos; here it
-   does real work, because the article is about turning input into pixels. */
+   every opaque pixel becomes a particle. It does real work here, because the
+   article is about turning input into pixels. */
 (function(){
   "use strict";
   var cv = document.getElementById("heroCanvas");

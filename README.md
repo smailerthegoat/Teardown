@@ -3,11 +3,9 @@
 A scrollytelling article: prose on the left, a sticky canvas figure on the right
 that redraws itself at every step of the argument.
 
-**Live:** https://smailerthegoat.github.io/website3/
+**Live:** https://smailerthegoat.github.io/Teardown/
 
 ## Patterns used
-
-Pulled from [Bench](https://github.com/smailerthegoat/website1):
 
 - **Sampled particles** (`js/particles.js`) : the title figure in the hero.
 - **Column wipe** (`js/loader.js`) : opens the article, then removes itself.
